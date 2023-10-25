@@ -17,24 +17,22 @@ const getPositionByLamport = (lamport: number): number => {
 
 const Lane = ({ changes, realID, peerID }: LaneProps) => {
   return (
-    <div className="flex w-48 h-28 m-4" key={peerID}>
+    <div className="flex w-48 h-28 m-4 " key={peerID}>
       <div className="flex flex-col justify-center">
         <div>
           <span>PeerID</span>:<code>{peerID}</code>
         </div>
         <p>{realID}</p>
       </div>
-      <div className=" relative">
+      <div className="relative">
         {changes.map((c) => {
-          const x = `left-${getPositionByLamport(c.lamport)}`;
-          console.log(x);
-
           return (
             <div
+              key={`${c.id.peer}-${c.id.counter}`}
               className={`m-4 absolute`}
               style={{
                 left: `${getPositionByLamport(c.lamport)}px`,
-                top: "24px",
+                top: "-16px",
               }}
             >
               <ChangeNode change={c} />

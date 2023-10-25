@@ -1,10 +1,18 @@
-import { Change } from "../typed";
+import { useAtom } from "jotai";
+import { currentVersion, versionContainsID } from "../model";
+import { Change, Op } from "../typed";
 
 interface ChangeProps {
   change: Change;
 }
 
 const ChangeNode = ({ change }: ChangeProps) => {
+  const [version] = useAtom(currentVersion);
+  const isContain = versionContainsID(version, [
+    change.id.peer,
+    change.id.counter,
+  ]);
+  const op = isContain ? "opacity-100" : "opacity-60";
   let bgColor;
   switch (change.type) {
     case "Text":
@@ -22,7 +30,7 @@ const ChangeNode = ({ change }: ChangeProps) => {
   }
 
   return (
-    <div className={`w-48 h-28 p-4 ${bgColor} flex flex-col`}>
+    <div className={`w-48 h-28 p-2 ${bgColor} flex flex-col ${op}`}>
       <div className="w-full flex">
         <div>Change</div>
         <div className=" ml-auto">
@@ -33,11 +41,27 @@ const ChangeNode = ({ change }: ChangeProps) => {
         </div>
       </div>
       <div>
-        <p>Lamport : {change.lamport}</p>
-        {/* <p>Timestamp: {change.timestamp}</p> */}
+        <span>{change.type}</span>
+        <span className="ml-6">
+          Lamport : <span>{change.lamport}</span>{" "}
+        </span>
         <div>
-          <p>Ops</p>
+          {change.ops.map((op) => {
+            return <OpView key={`${op.type}${op.props}${op.value}`} op={op} />;
+          })}
         </div>
+      </div>
+    </div>
+  );
+};
+
+const OpView = ({ op }: { op: Op }) => {
+  return (
+    <div>
+      <code>{op.type}</code>
+      <span className="ml-1">{op.props}</span>
+      <div>
+        <code>{op.value}</code>
       </div>
     </div>
   );

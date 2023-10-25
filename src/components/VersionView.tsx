@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const VersionView = () => {
   return (
-    <div>
+    <div className="">
       <div>VersionView</div>
       <table className="table-fixed">
         <thead>
@@ -18,6 +18,7 @@ const VersionView = () => {
           {frontiers.map((f, i) => {
             return (
               <VersionVectorAndFrontiers
+                key={versionToString(versions[i])}
                 frontiers={f}
                 versionVector={versions[i]}
               />

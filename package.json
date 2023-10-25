@@ -12,8 +12,8 @@
   "dependencies": {
     "jotai": "^2.5.0",
     "react": "^18.2.0",
-    "react-absolute-svg-arrows": "^0.1.6",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-simple-arrows": "^0.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
