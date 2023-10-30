@@ -1,5 +1,4 @@
-import { Provider, atom, useAtom, useSetAtom } from "jotai";
-import type { PrimitiveAtom } from "jotai";
+import { atom } from "jotai";
 import { Change } from "./typed";
 import { changeBaseHeight, changeMargin, changeWidth } from "./constant";
 
@@ -133,6 +132,11 @@ export const frontiers = [
   ]),
   new Map([[1, 5]]),
   new Map([[3, 13]]),
+
+  new Map([
+    [2, 20],
+    [3, 13],
+  ]),
   new Map([
     [1, 5],
     [3, 13],
@@ -174,6 +178,11 @@ export const versions = [
   new Map([
     [1, 5],
     [2, 1],
+    [3, 14],
+  ]),
+  new Map([
+    [1, 5],
+    [2, 21],
     [3, 14],
   ]),
   new Map([
@@ -230,7 +239,7 @@ export const getPointByPeerLamport = (
 
 export const getEndPointByID = (id: [number, number]) => {
   let peer = id[0];
-  let lamport;
+  let lamport: any;
   switch (id[0]) {
     case 1:
       lamport = peer1Changes.find((c) => {

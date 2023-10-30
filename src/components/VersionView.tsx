@@ -1,4 +1,4 @@
-import { useAtom, useSetAtom } from "jotai";
+import { useAtom } from "jotai";
 import { currentVersion, frontiers, versions } from "../model";
 import { Frontiers, VersionVector } from "../typed";
 import { useState } from "react";
