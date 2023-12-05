@@ -7,7 +7,7 @@ const VersionView = () => {
   return (
     <div className="">
       <div>VersionView</div>
-      <table className="table-fixed">
+      <table className="table-fixed border-separate border-spacing-x-2">
         <thead>
           <tr>
             <th>Frontiers</th>

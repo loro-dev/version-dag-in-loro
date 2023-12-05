@@ -18,6 +18,7 @@ export interface Change {
   lamport: number;
   type: containerType;
   ops: Op[];
+  contentLength: number;
   // timestamp: string;
   expanded: boolean;
 }

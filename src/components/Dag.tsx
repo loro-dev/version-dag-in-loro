@@ -6,21 +6,31 @@ import Frontiers from "./Frontiers";
 
 const Dag = () => {
   return (
-    <div className="flex gap-4">
-      <VersionView />
+    <div className=" mx-auto w-[1550px]">
       <div>
-        <div className="relative">
-          <div className="absolute left-36">
-            <Arrows changes={allChanges} />
+        <p className=" text-6xl">
+          The DAG in{" "}
+          <a className=" text-cyan-800" href="https://loro.dev">
+            Loro
+          </a>
+        </p>
+      </div>
+      <div className="flex gap-4 mt-12">
+        <VersionView />
+        <div>
+          <div className="relative">
+            <div className="absolute left-36">
+              <Arrows changes={allChanges} />
+            </div>
+            <div className="absolute left-36">
+              <Frontiers />
+            </div>
           </div>
-          <div className="absolute left-36">
-            <Frontiers />
+          <div className="">
+            <Lane changes={peer1Changes} realID="31289541689321" peerID={1} />
+            <Lane changes={peer2Changes} realID="56732167836821" peerID={2} />
+            <Lane changes={peer3Changes} realID="67841763812367" peerID={3} />
           </div>
-        </div>
-        <div className="">
-          <Lane changes={peer1Changes} realID="31289541689321" peerID={1} />
-          <Lane changes={peer2Changes} realID="56732167836821" peerID={2} />
-          <Lane changes={peer3Changes} realID="67841763812367" peerID={3} />
         </div>
       </div>
     </div>

@@ -7,11 +7,12 @@ export const peer1Changes: Change[] = [
     id: { peer: 1, counter: 0 },
     ops: [
       {
-        type: "Insert",
+        type: "Insert at",
         props: 0,
         value: "Loro",
       },
     ],
+    contentLength: 4,
     deps: new Map(),
     lamport: 0,
     type: "Text",
@@ -21,11 +22,12 @@ export const peer1Changes: Change[] = [
     id: { peer: 1, counter: 4 },
     ops: [
       {
-        type: "Insert",
+        type: "Insert at",
         props: 1,
         value: "ergonomic",
       },
     ],
+    contentLength: 1,
     deps: new Map([[2, 0]]),
     lamport: 5,
     type: "List",
@@ -35,11 +37,12 @@ export const peer1Changes: Change[] = [
     id: { peer: 1, counter: 5 },
     ops: [
       {
-        type: "Insert",
+        type: "Insert at",
         props: 1,
         value: "reliable",
       },
     ],
+    contentLength: 1,
     deps: new Map([
       [1, 4],
       [2, 1],
@@ -56,11 +59,12 @@ export const peer2Changes: Change[] = [
     id: { peer: 2, counter: 0 },
     ops: [
       {
-        type: "Insert",
+        type: "Insert at",
         props: 0,
         value: "fast",
       },
     ],
+    contentLength: 1,
     deps: new Map([
       [1, 0],
       [3, 0],
@@ -73,11 +77,12 @@ export const peer2Changes: Change[] = [
     id: { peer: 2, counter: 1 },
     ops: [
       {
-        type: "Insert",
+        type: "Insert at",
         props: 4,
         value: " is a CRDT framework",
       },
     ],
+    contentLength: 20,
     deps: new Map([[2, 0]]),
     lamport: 5,
     type: "Text",
@@ -90,11 +95,12 @@ export const peer3Changes: Change[] = [
     id: { peer: 3, counter: 0 },
     ops: [
       {
-        type: "Add",
+        type: "Set key",
         props: "Advantage",
         value: "[]",
       },
     ],
+    contentLength: 1,
     deps: new Map([]),
     lamport: 0,
     type: "Map",
@@ -104,11 +110,12 @@ export const peer3Changes: Change[] = [
     id: { peer: 3, counter: 1 },
     ops: [
       {
-        type: "Insert",
+        type: "Insert at",
         props: 9,
         value: "blazing fast ",
       },
     ],
+    contentLength: 13,
     deps: new Map([[1, 4]]),
     lamport: 6,
     type: "Text",

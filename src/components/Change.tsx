@@ -31,18 +31,18 @@ const ChangeNode = ({ change }: ChangeProps) => {
 
   return (
     <div className={`w-48 h-28 p-2 ${bgColor} flex flex-col ${op}`}>
-      <div className="w-full flex">
-        <div>Change</div>
+      <div className="w-full flex px-2">
+        <span>{change.type}</span>
         <div className=" ml-auto">
           ID:{" "}
           <code>
-            {change.id.peer}:{change.id.counter}
+            {change.id.counter}@{change.id.peer}
           </code>
         </div>
       </div>
       <div>
-        <span>{change.type}</span>
-        <span className="ml-6">
+        <span>length: {change.contentLength}</span>
+        <span className="ml-4">
           Lamport : <span>{change.lamport}</span>{" "}
         </span>
         <div>
@@ -61,7 +61,9 @@ const OpView = ({ op }: { op: Op }) => {
       <code>{op.type}</code>
       <span className="ml-1">{op.props}</span>
       <div>
-        <code>{op.value}</code>
+        <pre>
+          <code>{op.value}</code>
+        </pre>
       </div>
     </div>
   );
